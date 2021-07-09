@@ -1,5 +1,5 @@
 # Lecture01 JSP
-Key Word : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, JSP 파일 생성, 기본 브라우저 설정, 자바 서블릿(Java Servlet)
+Key Word : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, JSP 파일 생성, 기본 브라우저 설정, 자바 서블릿(Java Servlet), 파라미터(Parameter)
 
 <hr>
 
