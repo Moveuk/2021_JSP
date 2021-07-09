@@ -1,5 +1,5 @@
 # Lecture1 JSP
-Key Word : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, 
+Key Word : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, JSP 파일 생성, 기본 브라우저 설정, 자바 서블릿(Java Servlet)
 
 <hr>
 
@@ -241,6 +241,167 @@ Key Word : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 
 ![image](https://user-images.githubusercontent.com/84966961/125016464-60534a00-e0ac-11eb-8a97-df1fab01b560.png)   
 
 ![image](https://user-images.githubusercontent.com/84966961/125016520-74974700-e0ac-11eb-9aab-e83e3d28340c.png)   
+
+
+
+<br><br>
+<hr>
+
+### 첫 Web Project 생성 및 환경 구성
+
+1. 프로젝트를 생성해보자.
+
+![image](https://user-images.githubusercontent.com/84966961/125017330-dd32f380-e0ad-11eb-91ed-3a234ac6b1a7.png)
+
+![image](https://user-images.githubusercontent.com/84966961/125017431-1703fa00-e0ae-11eb-8ef1-413e593abd30.png)
+
+   
+<br>
+  
+ 우리가 앞으로 사용할 영역은 src 폴더들이다.    
+
+![image](https://user-images.githubusercontent.com/84966961/125017488-36028c00-e0ae-11eb-8f63-801c61b1ea09.png)
+
+   
+<br>
+  
+2. 새로운 jsp 파일을 만들어 보자.   
+
+![image](https://user-images.githubusercontent.com/84966961/125017558-592d3b80-e0ae-11eb-8eed-041d48e55de0.png)
+
+ 확장자와 이름을 작성해주자. jsp 확장자이다.   
+ 
+![image](https://user-images.githubusercontent.com/84966961/125017665-91cd1500-e0ae-11eb-8cab-e6b87ea568e1.png)
+
+ HTML 골격에 JSP를 이용하여 구조를 만들어주는 것이다.     
+
+![image](https://user-images.githubusercontent.com/84966961/125017698-a01b3100-e0ae-11eb-9c0c-0742691694c5.png)
+
+건드릴 필요는 없지만 HTML 버전을 바꿀 수 있고 바꾸게 되면 아래처럼 DOCTYPE도 바뀌는 것을 볼 수 있다.      
+
+![image](https://user-images.githubusercontent.com/84966961/125017716-a90c0280-e0ae-11eb-93c9-74f4c4c7a4c0.png)
+
+생성하면 다음과 같은 익숙한 화면을 볼 수 있다.   
+
+![image](https://user-images.githubusercontent.com/84966961/125017788-ce990c00-e0ae-11eb-95a6-bd438c64dd06.png)
+    
+![image](https://user-images.githubusercontent.com/84966961/125018242-afe74500-e0af-11eb-8449-e29f781eed7b.png)
+
+
+우리가 이 페이지를 사용하려면 톰캣 서버에 올려줘야 한다.   
+
+![image](https://user-images.githubusercontent.com/84966961/125017899-ff794100-e0ae-11eb-8955-9fae1fc00549.png)
+
+ 지금은 직접 올려줄 필요 없지만 지난 프로젝트를 사용하다보면 오류가 생기고 그 때마다 확인해야 할 경우가 생긴다. 그럴 때 사용할 수 있다. 보통은 톰캣이 알아서 올라가 있지 않은 페이지들을 올려주기 때문에 이 과정을 거칠 필요가 없다.   
+
+![image](https://user-images.githubusercontent.com/84966961/125017981-23d51d80-e0af-11eb-9e53-3520a34a5314.png)
+
+![image](https://user-images.githubusercontent.com/84966961/125018009-33ecfd00-e0af-11eb-82cf-09a400e070f2.png)
+
+그 다음 run버튼(f11)을 눌러 실행시켜보자.   
+
+![image](https://user-images.githubusercontent.com/84966961/125018122-71518a80-e0af-11eb-80b2-a496a8b5cb29.png)
+
+실행 시키게 되면 다음과 같이 이클립스 내부 브라우저에서 작성했던 내용이 출력되는 것을 볼 수 있다.   
+
+![image](https://user-images.githubusercontent.com/84966961/125018156-7e6e7980-e0af-11eb-9d5e-73e747da47de.png)
+
+우리는 크롬 브라우저를 기본으로 쓸 것이므로 디폴트 브라우저를 변경해보자.   
+
+`Window > Web Browser > 4 Chrome` 을 눌러 설정한 후 F11을 눌러 run 하면 크롬에서 창이 뜨는 것을 확인할 수 있다.
+
+![image](https://user-images.githubusercontent.com/84966961/125018416-02c0fc80-e0b0-11eb-8b4b-a2c235f19e2f.png)
+
+![image](https://user-images.githubusercontent.com/84966961/125018499-300daa80-e0b0-11eb-9663-0da92b446a29.png)
+
+
+### 자바 서블릿(Java Servlet)
+
+ 자바를 사용하여 웹페이지를 동적으로 생성하는 서버측 프로그램 혹은 그 사양을 말하며, 흔히 "서블릿"이라 불린다. 
+
+ 서블릿이라는 개념을 사용하여 코딩을 한다. 자바 서블릿. JSP와 서블릿이 융합이 되어 어떻게 구성되는지를 이해해보자.
+
+ 서블릿은 보안 측면에서 좋기 때문에 앞에서 서블릿을 통해 구현되고 뒷단에서 JSP를 통해 유저(Client)가 원하는 페이지 구조를 구현해준다.
+
+ java
+
+
+1. 새로운 서블릿 생성. 서블릿을 만들때는 `src/main/java` 폴더를 우클릭하여 만들어야 한다. 이와 달리 JSP 파일은 위에서 다루었던 것처럼 `src` 폴더를 우클릭하여 생성한다.   
+   
+![image](https://user-images.githubusercontent.com/84966961/125019140-6992e580-e0b1-11eb-84ab-9111f353c2bc.png)    
+   
+   
+<br>
+  
+2. 패키지 명과 클래스 명을 정해준 후 서블릿을 생성한다.   
+    
+![image](https://user-images.githubusercontent.com/84966961/125019316-bf678d80-e0b1-11eb-9b8e-ac6dd05eeef3.png)   
+   
+![image](https://user-images.githubusercontent.com/84966961/125019379-e625c400-e0b1-11eb-8bb0-1d274cfbc03c.png)   
+
+
+<br>
+  
+ 3. doGet 내부의 코드를 삭제한 후 코드를 작성한다. 실제 doGet에 들어가는 코드가 웹 페이지 상에서 구현되는 코드이다.      
+
+![image](https://user-images.githubusercontent.com/84966961/125019416-fb025780-e0b1-11eb-8b94-c3a06c59ba80.png)
+   
+![image](https://user-images.githubusercontent.com/84966961/125019699-72d08200-e0b2-11eb-96d3-d0244f2bd49b.png)
+
+
+<br>
+  
+ 4. 작성한 코드를 바로 상용하는 것이 아니라 서블릿에서 HTML 코드를 만들어서 웹서비스로 구현될 수 있도록 만들어준 다음 웹브라우저로 넘겨서 출력하는 개념이다. 따라서 add를 띄우기 위해서는 다음과 같은 코드가 준비되어야 한다.    
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int num1 = 10;
+		int num2 = 20;
+		int add = num1 + num2;
+		
+		PrintWriter out = response.getWriter();
+	}
+```
+
+ 작성 후 임포트 해주자.   
+
+![image](https://user-images.githubusercontent.com/84966961/125019779-8e3b8d00-e0b2-11eb-8eed-8912612f7dee.png)
+
+
+<br>
+ 
+5. 이 후 출력하고 싶은 내용을 PrintWriter의 메소드인 print()를 통해 작성하고 HTML 구조의 내용으로 작성해주면 된다. 여기서 사용되는 print 가 system.out.println를 통해 사용하는 것과 같은 것이다.   
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int num1 = 10;
+		int num2 = 20;
+		int add = num1 + num2;
+		
+		PrintWriter out = response.getWriter();
+		out.print("<html><head><titie></title></head>");
+		out.print("<body>");
+		out.print(num1 +"+"+ num2 +"="+ add);
+		out.print("</body></html>");
+	}
+```
+
+<br>
+ 
+ 6. 하지만 이 클래스에는 main 이 없으므로 이 자체로는 실행하지 못한다. 따라서 본래는 이 코드를 사용하기 위해서는 url 호출을 통해 실행되어야 하지만 이클립스에서 run 버튼은 자동으로 실행시켜준다. 실행 후 `주소`도 한 번 확인해보자.   
+   
+_본인의 경우에는 수업 진행하는 동안 서버가 갑자기 오류가 나서 다음과 같은 오류가 났다. 서버를 리스타트 후 다시 run했더니 정상 작동 되었다._   
+   
+![image](https://user-images.githubusercontent.com/84966961/125020330-a069fb00-e0b3-11eb-9afc-d1fe77c58540.png)
+   
+![image](https://user-images.githubusercontent.com/84966961/125020505-ecb53b00-e0b3-11eb-9e65-fe3a68f67850.png)
+
+서블릿을 활용하여 웹페이지를 구현하게 되면 이렇게 많은 코드가 필요하고 피로도가 누적되기 때문에 JSP로 이를 보완하여 사용한다.
+
+
+
 
 
 
