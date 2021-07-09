@@ -1,4 +1,4 @@
-# Lecture1 JSP
+# Lecture01 JSP
 Key Word : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, JSP 파일 생성, 기본 브라우저 설정, 자바 서블릿(Java Servlet)
 
 <hr>
@@ -400,6 +400,369 @@ _본인의 경우에는 수업 진행하는 동안 서버가 갑자기 오류가
 
 서블릿을 활용하여 웹페이지를 구현하게 되면 이렇게 많은 코드가 필요하고 피로도가 누적되기 때문에 JSP로 이를 보완하여 사용한다.
 
+<br>
+ 
+#### 서블릿 설명
+
+ doGet과 doPost의 역할은 동일하게 할 수 있다. 다만, 요청의 방식에 따라 사용도가 달라지게 된다.    
+   
+ 각 메소드는 예외 처리를 throws로 던진다.     
+
+![image](https://user-images.githubusercontent.com/84966961/125026921-6bb07080-e0c0-11eb-8d6f-b89423781e09.png)    
+
+ 이런 방식으로 웹 사이트의 화면을 구성하는 것은 옛 방식이며 현재는 동적인 웹 페이지를 구성하는데 쓰인다.    
+     
+ JSP의 도입으로 
+
+
+<br>
+ 
+### JSP 예제
+
+ 1. 앞의 add 예제를 JSP를 통해 만들어 보자. 새로운 JSP 파일 `Addition02`를 만들어 보자.   
+   
+![image](https://user-images.githubusercontent.com/84966961/125027160-c8ac2680-e0c0-11eb-8013-995daaeac5b2.png)   
+   
+![image](https://user-images.githubusercontent.com/84966961/125027229-e24d6e00-e0c0-11eb-9074-4835f11042ae.png)    
+
+   
+
+ 2. HTML 구조에 JSP 양식을 끼워 사용한다고 하였다. 그렇기 때문에 다음과 같은 기호를 통해 태그에 끼워 사용한다. 또한 `<% %>` 사이에는 자바코드를 넣을 수 있다.   
+   
+![image](https://user-images.githubusercontent.com/84966961/125027573-6142a680-e0c1-11eb-9b50-5a3c8f2a8976.png)
+   
+**결과 화면**   
+![image](https://user-images.githubusercontent.com/84966961/125027713-a1098e00-e0c1-11eb-9daf-2f9eb8cb29dc.png)
+
+
+
+
+<br>
+ 
+### 서블릿과 JSP의 비교
+
+ 서블릿과 JSP의 페이지 소스를 비교해보자. 실제 코드와 비교해보면 복잡한 코드와 달리 페이지 소스, 즉, 웹브라우저에서 인식하는 것은 HTML 밖에 인식 못하고 그것을 표현해주기 때문에 실제 코드가 어떻게 작성되었는지는 알 수 없다.
+
+![image](https://user-images.githubusercontent.com/84966961/125027841-e62dc000-e0c1-11eb-90a4-8bf4a0e78c7b.png)
+
+**서블릿 페이지 소스와 코드 화면**   
+![image](https://user-images.githubusercontent.com/84966961/125027855-f180eb80-e0c1-11eb-97f3-1b12ef439f5d.png)
+
+<img src="https://user-images.githubusercontent.com/84966961/125027979-2c831f00-e0c2-11eb-81bd-2e23f0ab3094.png" width="60%">
+
+
+
+**JSP 페이지 소스와 코드 화면**    
+![image](https://user-images.githubusercontent.com/84966961/125027873-fe054400-e0c1-11eb-933d-e4b1c7d46684.png)
+<img src="https://user-images.githubusercontent.com/84966961/125027991-32790000-e0c2-11eb-8070-c5dad00ee6d9.png" width="50%">
+
+
+<br><br>
+ <hr>
+ 
+### 서블릿과 JSP의 사용
+    
+ 서블릿에서는 데이터를 가공하고 JSP에는 데이터를 넣어줄 양식을 만들어 데이터를 넣어 HTML 을 만들어 웹브라우저로 보내는 방식으로 Addtion03을 크롬에 띄워보자.    
+   
+먼저 서블릿 파일을 새로 만들어 코드를 작성하자.     
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int num1 = 10;
+		int num2 = 20;
+		int add = num1 + num2;
+
+		request.setAttribute("num1", num1);
+		request.setAttribute("num2", num2);
+		request.setAttribute("add", add);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Addition03.jsp");
+		dispatcher.forward(request, response);
+	}
+```
+
+ 서블릿에 `request.setAttribute("num1", num1);`로 데이터값을 저장하고 `RequestDispatcher dispatcher = request.getRequestDispatcher("Addition03.jsp");` jsp 양식을 이용하여 `dispatcher.forward(request, response);` 웹브라우저로 뿌리는 방식이다.   
+   
+![image](https://user-images.githubusercontent.com/84966961/125031030-fbf1b400-e0c6-11eb-952b-9f4f4e861d00.png)   
+
+ 서블릿의 데이터들이 jsp 파일의 `${ }`양식으로 들어가 HTML 파일을 구현하게 된다.
+   
+<br>
+ 
+**결과 화면**    
+![image](https://user-images.githubusercontent.com/84966961/125031106-1a57af80-e0c7-11eb-97c7-e141a298f587.png)   
+   
+주소값을 보면 jsp 파일이 아니라 서블릿이므로 실제 실행되는 파일을 알 수 없으므로 보안을 유지하는 데 도움이 된다. 만약 서블릿을 사용하지 않는다면 유료 페이지이지만 단순히 주소를 치고 들어가는 것으로 무료 회원이 유료 회원의 사이트를 들어가볼 수 있을 것이다.
+
+
+
+<br><br>
+ <hr>
+ 
+### 서블릿 생성시 URL 주소 Mapping
+
+ 새로운 HelloServlet 이라는 서블렛을 만들 때 next 버튼을 눌러 다양한 속성값을 지정해줄 수 있다.
+
+![image](https://user-images.githubusercontent.com/84966961/125031582-d0bb9480-e0c7-11eb-981c-c3375304ae3f.png)
+
+ 두번째 창에서는 실제 홈페이지 상에서 표기되는 URL 주소 값을 지정해줄 수 있다.
+
+![image](https://user-images.githubusercontent.com/84966961/125031661-e466fb00-e0c7-11eb-9ff4-bb4eeb4902d4.png)
+
+또한 3번째 창에서는 필요한 메소드 선택하고 받아 사용할 수 있다.
+
+![image](https://user-images.githubusercontent.com/84966961/125031923-30b23b00-e0c8-11eb-9a4b-f4820daa8aed.png)
+
+<br>
+
+#### Hello Servlet 구현
+
+1. 새로 만든 doGet에 코드를 구현해준다.   
+
+```java
+	// 우리가 이런 타입을 구성하고 사용할 것이라는 것을 명시적으로 알려준다.
+	response.setContentType("text/html");
+	// html 형태로 웹브라우저를 실행하겠다.
+
+	PrintWriter out = response.getWriter();
+	out.print("<html><head><titie></title></head>");
+	out.print("<body>");
+	out.print("Hello Servelet");
+	out.print("</body></html>");
+```
+
+![image](https://user-images.githubusercontent.com/84966961/125033565-6b1cd780-e0ca-11eb-84ce-e94460280de0.png)
+
+<br>
+
+2. Server.xml 파일 내부에서 context를 보게되면 path 부분의 값이 주소의 path를 보여주고 있다.
+
+![image](https://user-images.githubusercontent.com/84966961/125033335-2729d280-e0ca-11eb-8cdd-9d36c9648651.png)
+
+<br>
+
+3. 웹브라우저에서 띄울 때 간혹 한글이 깨지는 경우가 발생하는데 그럴 때는 `charset=UTF-8` 속성을 넣어 처리해주면 문제가 해결된다.
+
+**문제 화면**    
+![image](https://user-images.githubusercontent.com/84966961/125033963-fdbd7680-e0ca-11eb-9afd-365cff9d1e59.png)    
+    
+```java
+	// 우리가 이런 타입을 구성하고 사용할 것이라는 것을 명시적으로 알려준다.
+	response.setContentType("text/html;charset=UTF-8");
+	// html 형태로 웹브라우저를 실행하겠다.
+	// charset=UTF-8를 통해 웹브라우저가 한글을 인식하여 깨짐을 방지하게 해준다.
+
+	PrintWriter out = response.getWriter();
+	out.print("<html><head><titie></title></head>");
+	out.print("<body>");
+	out.print("Hello Servelet 안녕하세요");
+	out.print("</body></html>");
+```
+
+**결과 화면**    
+![image](https://user-images.githubusercontent.com/84966961/125034098-2ba2bb00-e0cb-11eb-9eae-0cd7db375461.png)    
+   
+
+
+
+<br><br>
+ <hr>
+ 
+### form 태그와 서블릿의 데이터 두 가지 처리 방식
+
+ HTML에서 form 태그는 데이터를 서버로 보내 처리하는 용도의 태그이다. get방식은 주소창에 주소값이 그대로 노출되고 post방식은 주소창에 path값이 나오지 않는다.   
+
+<br>
+
+1. 새로운 `method.jsp`를 만든 후 다음과 같이 작성한다.   
+
+ method에는 원하는 방식을 넣어주고(설정하지 않으면 get으로 된다.) action에는 URL 매핑 정보를 넣어준다.
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form method="get" action="MethodServelet">
+		<input type="submit" value="get방식의 호출">
+	</form>
+	
+	<form method="post" action="MethodServelet">
+		<input type="submit" value="post방식의 호출">
+	</form>
+	
+</body>
+</html>
+```
+
+ <br>
+
+2. 새로운 서블릿을 doGet, doPost 모두 존재하게 생성한 후 작성한다.
+
+```java
+public class MethodServelet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<h1>get방식으로 처리됨</h1>");
+		out.close();
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<h1>post방식으로 처리됨</h1>");
+		out.close();
+	}
+
+}
+```
+
+<br>
+
+#### 결과와 흐름
+
+![image](https://user-images.githubusercontent.com/84966961/125038182-167c5b00-e0d0-11eb-8cd8-1adb06965826.png)   
+
+ 주소값을 직접 넣는 방식은 get 방식으로 페이지에 접속하는 방법이다. jsp를 통해 get방식을 누르게 되면 `http://localhost:8181/webstudy01/MethodServelet?` 라는 주소값이 뜨게 된다.     
+ 
+![image](https://user-images.githubusercontent.com/84966961/125038011-d9b06400-e0cf-11eb-8b28-59ce4d7a087d.png)   
+
+하지만 post방식 호출 버튼을 누르면 post 방식을 처리된 페이지가 보이게 된다. 하지만 이 화면에서 다시 주소를 입력해서 직접 들어가게 되면 get방식으로 처리된 페이지가 로드된다.   
+
+![image](https://user-images.githubusercontent.com/84966961/125038241-272cd100-e0d0-11eb-8c45-e9ccf89c4ccb.png)   
+![image](https://user-images.githubusercontent.com/84966961/125038366-4c214400-e0d0-11eb-8248-fc92f5c39725.png)   
+
+
+
+<br><br>
+ <hr>
+ 
+### a버튼과 get방식의 호출   
+ 
+a 버튼 또한 get방식의 호출이다. 따로 method를 정해주지 않았지만 주소값을 이용해서 들어가기 때문에 get방식으로 처리되는 것이다.
+ 
+```html
+	<form method="get" action="MethodServelet">
+		<input type="submit" value="get방식의 호출">
+	</form>
+	<br>
+	
+	<a href="http://localhost:8181/webstudy01/MethodServelet">get방식 호출</a>
+	
+	<br>
+	<form method="post" action="MethodServelet">
+		<input type="submit" value="post방식의 호출">
+	</form>
+```
+
+![image](https://user-images.githubusercontent.com/84966961/125038627-97d3ed80-e0d0-11eb-8b08-b6bdc6e144b3.png)
+
+
+
+
+<br><br>
+ <hr>
+ 
+### 파라미터(parameter)
+   
+1. 파라미터를 위한 jsp 생성.    
+    
+ 다음 코드에서 input을 통해 작성된 데이터가 submit 버튼을 클릭하는 순간 form 태그의 action값인 `ParamServlet`로 자료를 보내고 우리는 해당 서블릿에서 데이터를 받아 처리를 하는 코드를 작성하여 데이터를 받아 사용할 것이다. name 이라는 파라미터에 작성된 데이터가 저장된 상태로 서블릿에서는 파라미터를 사용하여 데이터를 구체적으로 받게 된다.   
+    
+ get 방식을 이용하게 되면 주소창에 파라미터와 데이터들이 함께 보내지고 이는 종종 보안에 좋지 않을 수 도 있다. 그럴 때는 주소창에 매핑 정보만 나오는 post 방식을 사용하는 것이 좋을 것으로 생각된다.
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="get" action="ParamServlet">
+		아이디 : <input type="text" name="id"><br>
+		나 이 : <input type="text" name="age"><br>
+		<input type="submit" name="전송"><br>
+		
+	</form>
+</body>
+</html>
+```
+    
+<br>
+    
+2. 서블릿 작성
+
+ `request.getParameter`에 파라미터를 매개 변수로 넣어 jsp에서 보낸 데이터를 받고 처리하는 과정(데이터를 다시 출력하는 과정)을 거쳐 실행되게 된다.
+
+```java
+@WebServlet("/ParamServlet")
+public class ParamServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+		String id = request.getParameter("id"); // name이(파라미터가) id인 것의 데이터값을 String 상태로 받아온다.
+		String age = request.getParameter("age"); // name이(파라미터가) age인 것의 데이터값을 String 상태로 받아온다.
+
+//		getParameter 양식
+//		String getParameter(String name)
+
+		// 화면 출력.
+		out.print("<html><head><titie></title></head>");
+		out.print("<body>");
+		out.print("당신이 입력한 정보입니다.<br>");
+		out.print("<br>id : " + id);
+		out.print("<br>age : " + age);
+		// 뒤로가기(history.go(-1)) a 태그 버튼 생성.
+		out.print("<br><a href= 'javascript:history.go(-1)'>다시</a>");		
+		out.print("</body></html>");
+
+	}
+
+}
+```
+
+**결과 화면**   
+   
+![image](https://user-images.githubusercontent.com/84966961/125041735-0d8d8880-e0d4-11eb-810e-b1bdc710fa62.png)   
+   
+제출 버튼 클릭 후    
+   
+![image](https://user-images.githubusercontent.com/84966961/125041932-462d6200-e0d4-11eb-88ef-bd10cafbd2e6.png)   
+   
+결과 화면을 보면 우리가 넣었던 데이터와 파라미터가 함께 주소창에 출력되는 것을 볼 수 있다.    
+   
+`다시` 버튼을 누르면 자바스크립트 코드에 의해 history에서 한단계 전으로 이동한다.   
+   
+![image](https://user-images.githubusercontent.com/84966961/125042346-af14da00-e0d4-11eb-9f6e-b988e2593f5a.png)    
+   
+
+
+
+
+
+
+<br><br>
+ <hr>
+ 
 
 
 
