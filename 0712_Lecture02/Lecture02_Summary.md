@@ -96,7 +96,7 @@ function check() {
     <Connector URIEncoding="UTF-8" connectionTimeout="20000" port="8181" protocol="HTTP/1.1" redirectPort="8443"/>
 ```
 
-![image](https://user-images.githubusercontent.com/84966961/125221027-8d009f00-e302-11eb-86f2-1a829d753858.png)
+![image](https://user-images.githubusercontent.com/84966961/125305225-26629c00-e369-11eb-9f4d-e1ec25568158.png)   
 
 
 **info06.jsp**
