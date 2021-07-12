@@ -546,7 +546,284 @@ public class SelectServlet extends HttpServlet {
 ![image](https://user-images.githubusercontent.com/84966961/125257473-68271e80-e338-11eb-9e86-1c4a9438875a.png)
 
 
+**0712quiz.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <!DOCTYPE html>
+    <html>
 
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <style>
+            .col1 {
+                width: 250px;
+            }
+
+            .col3 {
+                width: 700px;
+            }
+            
+            .required {
+                width: auto;
+                color: red;
+                font-weight: bold;
+            }
+            .btns {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .btn {
+                display: inline-block;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="contents">
+            <form action="QuizServlet" name="frm">
+                <table>
+                    <thead>
+                        <colgroup>
+                            <col class="col1">
+                            <col class="col2">
+                            <col class="col3">
+                        </colgroup>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>이름</td>
+                            <td class="required"> * </td>
+                            <td><input type="text" id="name" name="name" width="50" value="이동욱" autofocus required></td>
+                        </tr>
+                        <tr>
+                            <td>주민등록번호</td>
+                            <td class="required"> * </td>
+                            <td><input type="text" id="psno1" name="psno1" width="50" value="920525" required> - <input type="text" id="psno2" width="50" name="psno2" value="1548644" required></td>
+                        </tr>
+                        <tr>
+                            <td>아이디</td>
+                            <td class="required"> * </td>
+                            <td><input type="text" id="id" name="id" width="50" value="moveuk" required></td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호</td>
+                            <td class="required"> * </td>
+                            <td><input type="password" id="password" name="password" width="50" value="1234" required></td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호 확인</td>
+                            <td class="required"> * </td>
+                            <td><input type="password" id="pass_chk" name="pass_chk" width="50" value="1234" required></td>
+                        </tr>
+                        <tr>
+                            <td>이메일</td>
+                            <td class="required"></td>
+                            <td><input type="text" id="email_id" name="email_id" width="50" value="moveuk"> @ 
+                            <input type="text" id="email_domain" name="email_domain" size="20" disabled> 
+                            <select name="site"
+                                    id="email_select" name="email_select" onchange="fnSelectChange(this)">
+                                    <option value="" selected disabled>선택하세요</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="hotmail.com">hotmail.com</option>
+                                    <option value="korea.com">korea.com</option>
+                                    <option value="nate.com">nate.com</option>
+                                    <option value="yahoo.com">yahoo.com</option>
+                                    <option value="0">직접 입력</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>우편번호</td>
+                            <td class="required"></td>
+                            <td><input type="text" id="post" name="post" width="50" value="150-797" placeholder="000-000"></td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td class="required"></td>
+                            <td><input type="text" id="addr1" name="addr1" width="50" value="서울시 영등포구"> <input type="text" id="addr2" name="addr2" width="50" value="영등포본동"></td>
+                        </tr>
+                        <tr>
+                            <td>핸드폰번호</td>
+                            <td class="required"></td>
+                            <td><input type="tel" id="mobile" name="mobile" width="50" value="010-1000-1000" placeholder="010-0000-0000"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="job">직업</label></td>
+                            <td class="required"></td>
+                            <td><select id="job" name="job">
+                                    <option value="" selected disabled>선택하세요</option>
+                                    <option value="학생">학생</option>
+                                    <option value="컴퓨터/인터넷">컴퓨터/인터넷</option>
+                                    <option value="언론">언론</option>
+                                    <option value="공무원">공무원</option>
+                                    <option value="군인">군인</option>
+                                    <option value="서비스업">서비스업</option>
+                                    <option value="교육">교육</option>
+                                    <option value="기타">기타</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="left">
+                            <td><label for="chk_mail">메일/SMS 정보 수신</label></td>
+                            <td class="required"></td>
+                            <td><input type="radio" name="chk_mail" id="chk_mail" value="yes" checked>수신 <input type="radio" name="chk_mail" id="chk_mail" value="no">수신거부</td>
+                        </tr>
+                        <tr class="left">
+                            <td>관심분야</td>
+                            <td class="required"></td>
+                            <td>
+                                <input type="checkbox" name="interest" value="생두" checked> 생두 
+                                <input type="checkbox" name="interest" value="원두"> 원두 
+                                <input type="checkbox" name="interest" value="로스팅" checked> 로스팅  
+                                <input type="checkbox" name="interest" value="핸드드립" checked> 핸드드립 
+                                <input type="checkbox" name="interest" value="에스프레소"> 에스프레소 
+                                <input type="checkbox" name="interest" value="창업"> 창업 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btns">
+                    <button type="submit" class="btn" onclick="return check()">회원가입</button>
+                    <button type="reset" class="btn">취소</button>
+                </div>
+            </form>
+        </div>
+    </body>
+	<script type="text/javascript" src="quiz.js" charset="utf-8"></script>
+    </html>
+```
+
+**QuizServlet.java**
+```java
+@WebServlet("/QuizServlet")
+public class QuizServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		String name = request.getParameter("name");
+		String psno1 = request.getParameter("psno1");
+		String psno2 = request.getParameter("psno2");
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		String pass_chk = request.getParameter("pass_chk");
+		String email_id = request.getParameter("email_id");
+		String email_domain = request.getParameter("email_domain");
+		String email_select = request.getParameter("email_select");
+		String post = request.getParameter("post");
+		String addr1 = request.getParameter("addr1");
+		String addr2 = request.getParameter("addr2");
+		String mobile = request.getParameter("mobile");
+		String job = request.getParameter("job");
+		String interests[] = request.getParameterValues("interest");
+		
+		// 출력
+		out.print("<html><head><title></title></head>");
+		out.print("<body>");
+		out.print("이름 : "+name + "<br>");
+		out.print("주민등록번호 : "+ psno1 +" - "+ psno2 +"<br>");
+		out.print("아이디 : "+id+"<br>");
+		out.print("비밀번호 : "+password+"<br>");
+		out.print("이메일 : "+email_id+"@"+email_domain+"<br>");
+		out.print("우편번호 : "+post+"<br>");
+		out.print("주소 : "+addr1+"  "+ addr2 +"<br>");
+		out.print("핸드폰번호 : "+mobile+"<br>");
+		out.print("직업 : "+job+"<br>");
+		if (interests == null) {		
+			out.print("관심 분야 없음");
+		} else {
+			out.print("관심분야 : ");;
+			for (String interest : interests) {
+				out.print(interest+ " ");
+			}			
+		}
+		out.print("<br>");
+		out.print("<br><a href= 'javascript:history.go(-1)'>돌아가기</a>");
+		out.print("</body></html>");
+
+		out.close();
+	}
+
+}
+```
+
+   
+**quiz.js**
+```javascript
+function check() {
+	if (document.frm.name.value == "") {
+		alert("이름을 입력하세요");
+		document.frm.name.focus()
+		return false;
+	}
+	if (document.frm.psno1.value == "" || document.frm.psno2.value == "") {
+		if (document.frm.psno1.value == "") {
+			alert("주민등록번호를 입력하세요");
+			document.frm.psno1.focus();
+		} else {
+			alert("주민등록번호를 입력하세요");
+			document.frm.psno2.focus();
+		}
+		return false;
+	}
+	if (isNaN(document.frm.psno1.value) || isNaN(document.frm.psno2.value)) {
+		if (isNaN(document.frm.psno1.value)) {
+			alert("숫자로 입력하세요.");
+			document.frm.psno1.focus();
+		} else {
+			alert("숫자로 입력하세요.");
+			document.frm.psno2.focus();
+		}
+		return false;
+	}
+	if (document.frm.id.value == "") {
+		alert("아이디를 입력하세요");
+		document.frm.id.focus()
+		return false;
+	}
+	if (document.frm.password.value == "" || document.frm.pass_chk.value == "") {
+		if (document.frm.password.value == "") {
+			alert("주민등록번호를 입력하세요");
+			document.frm.password.focus();
+		} else {
+			alert("주민등록번호를 입력하세요");
+			document.frm.pass_chk.focus();
+		}
+		return false;
+	}
+	if (isNaN(document.frm.password.value) || isNaN(document.frm.pass_chk.value)) {
+		if (isNaN(document.frm.password.value)) {
+			alert("숫자로 입력하세요.");
+			document.frm.password.focus();
+		} else {
+			alert("숫자로 입력하세요.");
+			document.frm.pass_chk.focus();
+		}
+		return false;
+	}
+}
+
+function fnSelectChange(e) {
+  	var value = e.value;
+	var email_domain = document.getElementById('email_domain');
+	var target = document.getElementById('email_select');
+	
+	if (value != '0') {
+		email_domain.value = value;
+	} else {
+		email_domain.disabled = false;
+	}
+	
+}
+```
+
+**결과 화면**    
+![image](https://user-images.githubusercontent.com/84966961/125304936-f2877680-e368-11eb-92e7-3a7a1c2b719f.png)
 
 
 
