@@ -10,8 +10,8 @@ book img<img src="" width="40%">
 ## < 목차 >
 1. 20210709 Lecture01    
 	Hello JSP : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, JSP 파일 생성, 기본 브라우저 설정, 자바 서블릿(Java Servlet), 파라미터(Parameter)
-2. 202107 Lecture02     
-	
+2. 20210712 Lecture02     
+	JSP, 자바 서블릿(Java Servlet), form 태그, 한글 깨짐 방지(get, post), server, 회원가입 속성, checkbox 태그, select 태그, multiple
 3. 20210 Lecture03    
 	
 4. 20210 Lecture04   
