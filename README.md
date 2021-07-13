@@ -1,19 +1,20 @@
 # 2021_JSP
 Learning about basic JSP   
    
-교재 : 
-글쓴이 :    
-출판사 :    
+교재 : 백견불여일타 JSP & Servelet    
+글쓴이 : 성윤정   
+출판사 : 로드북   
+   
+<img src="https://user-images.githubusercontent.com/84966961/125415005-6ab64dfb-6246-4b38-9fb6-7cfa50d20963.png" width="40%">
     
-book img<img src="" width="40%">
-    
+
 ## < 목차 >
 1. 20210709 Lecture01    
 	Hello JSP : JSP, 톰캣 설치, Port 설정, 톰캣 서버 연동, 개발 환경 구성, 인코딩 설정, JSP 파일 생성, 기본 브라우저 설정, 자바 서블릿(Java Servlet), 파라미터(Parameter)
 2. 20210712 Lecture02     
 	JSP, 자바 서블릿(Java Servlet), form 태그, 한글 깨짐 방지(get, post), server, 회원가입 속성, checkbox 태그, select 태그, multiple
-3. 20210 Lecture03    
-	
+3. 20210713 Lecture03    
+	서버, 세션
 4. 20210 Lecture04   
 	
 5. 20210 Lecture05   
