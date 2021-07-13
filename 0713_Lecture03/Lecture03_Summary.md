@@ -14,7 +14,7 @@ Key Word : 서버, 세션
  
 ### 세션 객체 저장
 
-**세션 **
+**세션**
 ```java
 package unit12;
 
@@ -46,7 +46,7 @@ public class SetNameServlet extends HttpServlet {
 }
 ```
 
-**결과 화면**
+**결과 화면**    
 ![image](https://user-images.githubusercontent.com/84966961/125394523-c27db900-e3e4-11eb-8cee-ba4a80ed43ae.png)
 
 
@@ -58,7 +58,7 @@ public class SetNameServlet extends HttpServlet {
 
 
 
-**세션 불러오기**
+**세션 불러오기**    
 ```java
 @WebServlet("/SetNameServlet")
 public class GetNameServlet extends HttpServlet {
@@ -83,11 +83,11 @@ public class GetNameServlet extends HttpServlet {
 ### 세션 객체 불러오기
 
 
- 로그인 전에는 `로그인 해주세요` 라는 글이 보이지만 로그인 후 에는 웹서버로부터 reponse를 통해 세션으로부터 id 값을 받았기 때문에 표시되는 모습이 바뀌게 된다.    
+ 로그인 전에는 `로그인 해주세요` 라는 글이 보이지만 로그인 후 에는 웹서버로부터 reponse를 통해 세션으로부터 id 값을 받았기 때문에 표시되는 모습이 바뀌게 된다.             
     
-![image](https://user-images.githubusercontent.com/84966961/125405571-d8927600-e3f2-11eb-9c3e-075c63b34fc5.png)    
+![image](https://user-images.githubusercontent.com/84966961/125405571-d8927600-e3f2-11eb-9c3e-075c63b34fc5.png)      
 
-![image](https://user-images.githubusercontent.com/84966961/125405762-0972ab00-e3f3-11eb-9cc6-815515089d92.png)    
+![image](https://user-images.githubusercontent.com/84966961/125405762-0972ab00-e3f3-11eb-9cc6-815515089d92.png)     
 
 
 
@@ -96,13 +96,13 @@ public class GetNameServlet extends HttpServlet {
 <hr>
  
 ## 교재 130p : JSP로 시작하는 웹 프로그래밍
+  
 
+![image](https://user-images.githubusercontent.com/84966961/125407226-a1bd5f80-e3f4-11eb-9168-67c29062ca11.png)     
 
-![image](https://user-images.githubusercontent.com/84966961/125407226-a1bd5f80-e3f4-11eb-9168-67c29062ca11.png)   
+![image](https://user-images.githubusercontent.com/84966961/125407353-c1548800-e3f4-11eb-98f5-451d8d055a5b.png)     
 
-![image](https://user-images.githubusercontent.com/84966961/125407353-c1548800-e3f4-11eb-98f5-451d8d055a5b.png)   
-
-![image](https://user-images.githubusercontent.com/84966961/125407390-ca455980-e3f4-11eb-9668-4483d0dfc1a3.png)   
+![image](https://user-images.githubusercontent.com/84966961/125407390-ca455980-e3f4-11eb-9668-4483d0dfc1a3.png)     
 
 
 
@@ -111,19 +111,19 @@ public class GetNameServlet extends HttpServlet {
 <br><br>
  
 ### Path Server.xml 확인
+ 
+프로젝트 생성시 context path를 바꿀 수 있다.      
+   
+![image](https://user-images.githubusercontent.com/84966961/125407720-1a242080-e3f5-11eb-8ebd-0f4899bd692e.png)      
+ 
+   
+test.jsp 를 만들어 웹 서버에 등록하기 전까진 server.xml 에는 다음과 같이 프로젝트 webstudy03에 대한 path가 없다.    
 
-프로젝트 생성시 context path를 바꿀 수 있다.   
+![image](https://user-images.githubusercontent.com/84966961/125407984-61aaac80-e3f5-11eb-8596-5a69f6d20def.png)    
 
-![image](https://user-images.githubusercontent.com/84966961/125407720-1a242080-e3f5-11eb-8ebd-0f4899bd692e.png)   
+하지만 프로젝트가 웹 서버에 올라가 실행되면 다음과 같이 path가 정리가 된다.    
 
-
-test.jsp 를 만들어 웹 서버에 등록하기 전까진 server.xml 에는 다음과 같이 프로젝트 webstudy03에 대한 path가 없다.
-
-![image](https://user-images.githubusercontent.com/84966961/125407984-61aaac80-e3f5-11eb-8596-5a69f6d20def.png)
-
-하지만 프로젝트가 웹 서버에 올라가 실행되면 다음과 같이 path가 정리가 된다.
-
-![image](https://user-images.githubusercontent.com/84966961/125408063-75561300-e3f5-11eb-9cd6-90b13250ac09.png)
+![image](https://user-images.githubusercontent.com/84966961/125408063-75561300-e3f5-11eb-9cd6-90b13250ac09.png)    
 
 
 
