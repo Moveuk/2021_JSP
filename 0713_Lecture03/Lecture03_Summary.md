@@ -1,4 +1,4 @@
-# Lecture02 웹 서버와 세션
+# Lecture03 웹 서버와 세션
 Key Word : 서버, 세션
 
 <hr>
