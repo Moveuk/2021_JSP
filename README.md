@@ -15,10 +15,10 @@ Learning about basic JSP
 	JSP, 자바 서블릿(Java Servlet), form 태그, 한글 깨짐 방지(get, post), server, 회원가입 속성, checkbox 태그, select 태그, multiple
 3. 20210713 Lecture03    
 	서버, 세션
-4. 20210 Lecture04   
-	
-5. 20210 Lecture05   
-    
+4. 20210714 Lecture04   
+	JSP 기본 태그, 스크립트릿, 주석문, 선언문, 내장 객체, out, request   
+5. 20210715 Lecture05   
+    	JSP, 내장 객체, 영역 객체, page, request, session, application, 액션 태그, forward, param, include
 6. 20210 Lecture06   
 	
 7. 20210 Lecture07   
