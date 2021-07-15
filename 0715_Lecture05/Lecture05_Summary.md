@@ -1,6 +1,6 @@
 # Lecture05 4장 JSP 내장 객체와 액션 태그
 
-Key Word : JSP, 내장 객체, 액션 태그   
+Key Word : JSP, 내장 객체, 영역 객체, page, request, session, application, 액션 태그, forward, param, include
 
 <hr>
 
