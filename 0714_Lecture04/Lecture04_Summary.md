@@ -1,5 +1,5 @@
 # Lecture04 3장 JSP 기본 다루기
-Key Word : JSP   
+Key Word : JSP 기본 태그, 스크립트릿, 주석문, 선언문, 내장 객체, out, request   
 
 <hr>
  
