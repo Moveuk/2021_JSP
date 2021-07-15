@@ -1114,7 +1114,7 @@ response를 통한 sendRedirect 메소드에 매개 변수로 이동한다. | re
 
 **두 방식 모두 출력시**   
    
- response forward
+ response forward만 id가 남아있다.    
 ![image](https://user-images.githubusercontent.com/84966961/125586945-415bada7-5f5b-4a09-9033-4efde470f77c.png)
 
 
