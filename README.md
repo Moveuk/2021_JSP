@@ -19,10 +19,10 @@ Learning about basic JSP
 	JSP 기본 태그, 스크립트릿, 주석문, 선언문, 내장 객체, out, request   
 5. 20210715 Lecture05   
     	JSP, 내장 객체, 영역 객체, page, request, session, application, 액션 태그, forward, param, include
-6. 20210 Lecture06   
-	
-7. 20210 Lecture07   
-	
+6. 20210716 Lecture06   
+	쿠키(Cookie) 
+7. 20210719 Lecture07   
+	세션(Session)
 8. 20210 Lecture08   
 	
 9. 20210 Lecture09   
