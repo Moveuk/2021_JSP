@@ -557,35 +557,426 @@ while(names.hasMoreElements()){
 
 ## 교재 272p : 자바 빈과의 첫 데이트
 
+ 회원 가입 페이지에서 입력한 정보는 다음 두 가지 방법으로 서버에 전송된다.   
+    
+ 1. 이름, 아이디, 별명, 비밀번호 등을 개별적으로 전송하는 방법.   
+ ```
+<%
+ member.setName(request.getParameter("name"));
+ member.setUserid(request.getParameter("userid"));
+ member.setNickname(request.getParameter("nickname"));
+ member.setPwd(request.getParameter("pwd"));
+ member.setEmail(request.getParameter("email"));
+ member.setPhone(request.getParameter("phone"));
+ %>
+```
+    
+ 2. 회원 정보를 하나로 묶어서 전송하는 방법
+```
+  <jsp : setProperty property="*" name="member"/>
+```
+
+ 두 번째 방법인 자바 빈과 액션 태그를 이용하여 하나의 묶음으로 전송하는 것이 훨씬 효율적이다.   
+    
+ 자바 빈은 정보의 덩어리로 **데이터 저장소**라고 정의할 수 있다. 한꺼번에 전달할 수 있는 장점을 가진다. 또한 자바 빈은 단순히 데이터를 저장하는 것 뿐만 아니라 **데이터 은닉(Data Hiding)**이란 개념을 사용한다.   
+
+
+
+
+<br><br>
+<hr>
+  
+## 교재 276p : 자바 빈 클래스 만들기
+
+ 자바 빈도 역시 클래스이다. 그러므로 자바 빈 역시 클래스를 구성하는 요소인 필드와 메소드로 구성된다. 좀 더 구체적으로 이야기하면 자바 빈은 필드와 getter/setter 메소드를 하나의 쌍으로 갖는 특별한 클래스이다.
+
+구성요소 | 의미
+-|-
+필드 | (private) 빈이 가진 속성을 의미한다. 멤버변수 형태로 제공된다.
+메소드 | (getter/setter) 빈을 외부에서 조작할 수 있도록 하는 방식들을 제공해 준다. 멤버함수 형태로 제공된다.
 
 
 
 
 
 
+<br><br>
+<hr>
+  
+### 교재 276p : 자바 빈 클래스
+
+**MemberBean.java**
+```java
+package javabeans;
+
+public class MeberBean {
+	private String name;
+	private String userid;
+	private String nickname;
+	private String pwd;
+	private String email;
+	private String phone;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+}
+```
+
+
+<br><br>
+<hr>
+  
+## 교재 286p : 자바 빈 관련 액션 태그
+
+ 자바 빈의 의미와 작성 방법을 살펴보았으므로 이제 JSP에서 어떻게 활용하는지를 알아보겠다. JSP에서는 자바 빈을 사용하기 위한 액션 태그를 다음과 같이 3가지 종류로 제공된다.    
+
+액션 태그의 종류 | 설명
+-|-
+`<jsp:useBean>` | 자바 빈을 생성한다.
+`<jsp:getProperty>` | 자바 빈에서 정보를 얻어온다.
+`<jsp:setProperty>` | 자바 빈에 정보를 저장한다.
+
+
+
+<br><br>
+<hr>
+  
+### 교재 286p : 자바 빈 객체를 생성하는 `<jsp:useBean>` 액션 태그
+
+ `<jsp:useBean>` 액션 태그는 JSP와 자바 빈을 연결하기 위한 자바 빈 객체를 생성한다.   
+    
+ 자바에서 객체를 생성하는 코드와 동일한 동작을 한다고 생각하면 이해가 빠를 것이다.   
+ 
+```jsp
+<%@ page import="com.saeyan.javabeans.MemberBean" %>
+<%
+ MemberBean member = new MemberBean();
+%>
+```
+
+ import 속성을 갖는 page 지시자 없이 하면 다음 코드와 같이 **풀네임 형식(패키지를 포함한 평태의 클래스 이름을 의미)**으로 적어주어야 한다.
+
+```jsp
+<% 
+ com.saeyan.javabeans.MemberBean member = new com.saeyan.javabeans.MemberBean();
+%>
+```
+
+ 객체를 생성하면 다음과 같이 MemberBean 클래스의 메소드들을 사용할 수 있다.   
+ 
+```jsp 
+//getter
+ <%=member.getName()%>
+ <%=member.getUserid()%>
+//setter
+ <%=member.setName("이동욱")%>
+ <%=member.setUserid("moveuk")%>
+```
+
+JSP에서 자바 빈 객체를 생성하기 위해서는 다음과 같이 `<jsp:useBean>` 액션 태그를 사용한다. 
+
+```jsp
+<jsp:useBean 	class="클래스 풀 네임"
+		id="빈 이름"
+		[scope="범위"]/>
+```
+
+ [] 는 생략 가능하며 유효 범위를 위한 속성이다. 즉 값으로는 page,request, session, application 중 하나를 사용해야 한다.
+ 
+```jsp
+<jsp:useBean 	class="com.saeyan.javabeans.MemberBean"
+		id="member"
+		[scope="page"]/>
+```
+
+ 이 코드는 **①com.saeyan.javabeans.MemberBean 클래스의 자바 빈 객체를 생성**해서 **②이름이 member인 변수에 할당**하고 **③page 객체의 속성 값으로 위 객체를 저장**한다는 의미이다. 다음 코드가 자동으로 생성된다고 생각하면 된다.
+ 
+
+```jsp
+<% 
+ com.saeyan.javabeans.MemberBean member = new com.saeyan.javabeans.MemberBean();
+ pageContext.setAttribute("memeber", member);
+%>
+```
+
+
+<br><br>
+<hr>
+  
+#### 교재 291p : 자바 빈 객체 생성하기(`<jsp:useBean>` 액션 태그)
+
+**01_useBeanDemo.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<jsp:useBean id="member" class="javabeans.MemberBean"></jsp:useBean>
+
+◎ 자바 빈 객체 생성 후 저장된 정보 출력하기 <br /><br />
+<% 
+member.setName("이동욱");
+member.setUserid("moveuk");
+%>
+
+이름 : <%= member.getName() %> <br>
+아이디 : <%= member.getUserid() %>
+
+</body>
+</html>
+```
 
 
 
 
 
 
+<br><br>
+<hr>
+  
+### 교재 286p : 자바 빈 객체를 생성하는 `<jsp:getProperty>` 액션 태그
+
+ 다음은 회원의 이름을 얻기 위해서 getName()을 호출한 예이다.
+ 
+ ```
+ <%= memeber.getName()%>
+```
+
+ 다음은 스크립트릿 getter를 활용하여 호출하는 대신 `<jsp:getProperty>` 액션 태그를 사용한 예이다.
+ 
+ ```jsp
+ <jsp:getProperty name="member" property="name"/>
+ ```
+
+ JSP 에서는 스크립트릿을 이용하여 자바 코드를 혼용하면 가독성이 떨어지고 코드가 지저분해지기 때문에 액션 태그를 활용하여 작성한다. 다음은 기본 형식이다   
+
+ ```jsp
+ <jsp:getProperty name="빈 이름" property="프로퍼티 이름"/>
+ ```
+
+ name은 반드시 `<jsp:useBean>`에서 설정한 id와 일치해야 한다. SetAttribute할 때의 Key 값이기 때문이다.
 
 
 
 
 
+<br><br>
+<hr>
+  
+### 교재 286p : 자바 빈 객체를 생성하는 `<jsp:setProperty>` 액션 태그
+
+ 반대로 정보를 설정하기 위해서는 다음과 같이 setter를 사용해야 한다.
+ 
+ ```
+ <% memeber.setName("이동욱");%>
+```
+
+ `<jsp:getProperty>` 액션 태그는 private한 변수를 지정하는 것이 아니라 setter를 불러 변경하는 것이다.
+ 
+ ```jsp
+ <jsp:setProperty name="자바 빈 이름" property="프로퍼티 이름" value="값"/>
+ ```
+ 
+<br><br>
+
+#### name
+
+ name은 반드시 `<jsp:useBean>`에서 설정한 id와 일치해야 한다. SetAttribute할 때의 Key 값이기 때문이다.
+
+
+<br><br>
+
+#### property
+
+ property의 값은 필드의 이름과 같아야 하며 첫글자가 대문자로 바뀌어 setter를 호출하게 된다. 
+
+
+<br><br>
+
+#### value
+
+ value는 변경할 값을 전달해준다.
 
 
 
+<br><br>
+<hr>
+  
+#### 교재 296p : 자바 빈 프로퍼티 값 얻기와 변경하기 (`<jsp:getProperty>`,`<jsp:setProperty>` 액션 태그)
+
+**02_propertyDemo.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<jsp:useBean id="member" class="javabeans.MemberBean"></jsp:useBean>
+<hr>
+◎ 자바 빈 객체 생성 후 저장된 정보 출력하기 <br /><br />
+
+이름 : <jsp:getProperty property="member" name="name"/> <br>
+아이디 : <jsp:getProperty property="member" name="userid"/>
+<hr>
+
+◎ 정보 변경한 후 변겅된 정보 출력하기 <br /><br />
+<jsp:setProperty property="member" name="name" value="이동욱"/> <br>
+<jsp:setProperty property="member" name="userid" value="moveuk"/> <br>
+이름 : <jsp:getProperty property="member" name="name"/> <br>
+아이디 : <jsp:getProperty property="member" name="userid"/>
+
+</body>
+</html>
+```
 
 
+<br><br>
+<hr>
+  
+## 교재 297p : 자바 빈으로 회원 정보 처리하기
+
+자바 빈의 장점은 회원 가입시 입력한 회원 정보를 하나로 묶어서 서버로 전송할 수 있다는 점이다. 회원 가입 폼에서 입력받은 정보를 자바 빈 com.saeyan.javabeans.MemberBean에 저장하고 이를 조회하는 프로그램을 만들어 보자.
 
 
+**03_addMemberForm.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2> 회원의 정보 입력 폼</h2>
+<form action="03_addMember.jsp" method="post">
+	<table>
+		<tr>
+			<td> 이름 </td>
+			<td><input type="text" name="name" size="20" /></td>
+		</tr>
+		<tr>
+			<td> 아이디 </td>
+			<td><input type="text" name="userid" size="20" /></td>
+		</tr>
+		<tr>
+			<td> 별명 </td>
+			<td><input type="text" name="nickname" size="20" /></td>
+		</tr>
+		<tr>
+			<td> 비밀번호 </td>
+			<td><input type="password" name="pwd" size="20" /></td>
+		</tr>
+		<tr>
+			<td> 이메일 </td>
+			<td><input type="text" name="email" size="20" /></td>
+		</tr>
+		<tr>
+			<td> 전화번호 </td>
+			<td><input type="text" name="phone" size="11" /></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="전송" /></td>
+			<td><input type="reset" value="취소"/></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+```
 
+**03_addMember.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="member" class="javabeans.MemberBean"></jsp:useBean>
+<jsp:setProperty property="*" name="member"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 입력 완료된 회원 정보</h2>
+	<table>
+		<tr>
+			<td> 이름 </td>
+			<td><jsp:getProperty property="name" name="member"/></td>
+		</tr>
+		<tr>
+			<td> 아이디 </td>
+			<td><jsp:getProperty property="userid" name="member"/></td>
+		</tr>
+		<tr>
+			<td> 별명 </td>
+			<td><jsp:getProperty property="nickname" name="member"/></td>
+		</tr>
+		<tr>
+			<td> 비밀번호 </td>
+			<td><jsp:getProperty property="pwd" name="member"/></td>
+		</tr>
+		<tr>
+			<td> 이메일 </td>
+			<td><jsp:getProperty property="email" name="member"/></td>
+		</tr>
+		<tr>
+			<td> 전화번호 </td>
+			<td><jsp:getProperty property="phone" name="member"/></td>
+		</tr>
+	</table>
+</body>
+</html>
+```
 
-
-
-
-
-
+**결과 화면**   
+![image](https://user-images.githubusercontent.com/84966961/126136993-3bd0dafc-56df-444d-8945-467cc59a291f.png)
+![image](https://user-images.githubusercontent.com/84966961/126137013-d2010e43-aa8c-4a57-acfe-f7cba19da0c5.png)
 
