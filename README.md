@@ -24,9 +24,9 @@ Learning about basic JSP
 7. 20210719 Lecture07   
 	세션(Session), 로그인, 자바 빈, 액션 태그   
 8. 20210720 Lecture08   
-	
-9. 20210 Lecture09   
-	
+	세션(session), 로그인, 자바 빈, 액션 태그
+9. 20210721 Lecture09   
+	표현 언어, JSTL
 10. 20210 Lecture10    
 	
 11. 20210 Lecture11     
