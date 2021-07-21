@@ -26,8 +26,8 @@ Learning about basic JSP
 8. 20210720 Lecture08   
 	세션(session), 로그인, 자바 빈, 액션 태그
 9. 20210721 Lecture09   
-	표현 언어, JSTL
-10. 20210 Lecture10    
+	표현 언어, JSTL, `${ }`, `<c: >`, set, remove, import, if, choose, forEach, forTokens, url, redirect, out, catch
+10. 20210722 Lecture10    
 	
 11. 20210 Lecture11     
 	
