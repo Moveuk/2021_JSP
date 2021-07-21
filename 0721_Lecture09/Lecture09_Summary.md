@@ -1,6 +1,6 @@
 # Lecture09 7장 표현 언어와 JSTL
 
-Key Word : 표현 언어, JSTL
+Key Word : 표현 언어, JSTL, `${ }`, `<c: >`, set, remove, import, if, choose, forEach, forTokens, url, redirect, out, catch
 
 <hr>
 
