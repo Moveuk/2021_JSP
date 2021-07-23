@@ -30,7 +30,7 @@ Learning about basic JSP
 10. 20210722 Lecture10    
 	JSTL fmt, formatNumber, formatDate, locale, requestEncoding, EL-JTSL 로그인폼, javabean 회원가입폼, SQL, Oracle, DriverManager, JNDI Datasource, InitialContext(), DataSource, init.lookup, Statement, createStatement, prepareStatement
 11. 20210721 Lecture11     
-	
+	ResultSet, MetaData, transaction, Test8, 
 12. 20210 Lecture12  
 	
 13. 20210 Lecture13    
