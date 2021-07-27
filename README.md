@@ -29,13 +29,13 @@ Learning about basic JSP
 	표현 언어, JSTL, `${ }`, `<c: >`, set, remove, import, if, choose, forEach, forTokens, url, redirect, out, catch
 10. 20210722 Lecture10    
 	JSTL fmt, formatNumber, formatDate, locale, requestEncoding, EL-JTSL 로그인폼, javabean 회원가입폼, SQL, Oracle, DriverManager, JNDI Datasource, InitialContext(), DataSource, init.lookup, Statement, createStatement, prepareStatement
-11. 20210721 Lecture11     
-	ResultSet, MetaData, transaction, Test8, 
-12. 20210 Lecture12  
-	
-13. 20210 Lecture13    
-	    
-14. 20210 Lecture14    
+11. 20210723 Lecture11     
+	ResultSet, MetaData, transaction, Test8
+12. 20210726 Lecture12  
+	select, update, delete, insert 기능 구현, 자바 빈을 이용한 데이터 읽고 쓰기
+13. 20210727 Lecture13    
+	lombok 이용, 회원 관리 시스템 구축, DAO, VO, 로그인 유효성 체크(자바스크립트), userCheck(), getMember()
+14. 20210728 Lecture14    
 	    
 15. 20210 Lecture15     
 	  	
