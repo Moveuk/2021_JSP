@@ -36,8 +36,8 @@ Learning about basic JSP
 13. 20210727 Lecture13    
 	lombok 이용, 회원 관리 시스템 구축, DAO, VO, 로그인 유효성 체크(자바스크립트), userCheck(), getMember()
 14. 20210728 Lecture14    
-	    
-15. 20210 Lecture15     
+	회원 가입 기능, 로그아웃 기능, 회원 정보 수정 기능, 유효성 검사
+15. 20210729 Lecture15     
 	  	
 16. 20210 Lecture16   
 	
