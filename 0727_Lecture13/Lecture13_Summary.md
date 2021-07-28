@@ -1,4 +1,4 @@
-# Lecture12 JSP, JDBC와 SQL
+# Lecture13 JSP, JDBC와 SQL
 
 Key Word : lombok 이용, 회원 관리 시스템 구축, DAO, VO, 로그인 유효성 체크(자바스크립트), userCheck(), getMember()
 
