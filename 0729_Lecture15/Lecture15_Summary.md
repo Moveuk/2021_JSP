@@ -277,15 +277,23 @@ public class EmployeesDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				// 인덱스 번호로 불러오면 안됨. 어째서?
+				// 인덱스 번호 1번째부터 불러와짐
 				eVo = new EmployeesVO();
-				eVo.setId(rs.getString("ID"));
-				eVo.setPass(rs.getString("PASS"));
-				eVo.setName(rs.getString("name"));
-				eVo.setLev(rs.getString("lev"));
-				eVo.setEnter(rs.getDate("ENTER"));
-				eVo.setGender(rs.getInt("GENDER"));
-				eVo.setPhone(rs.getString("PHONE"));
+				eVo.setId(rs.getString(1));
+				eVo.setPass(rs.getString(2));
+				eVo.setName(rs.getString(3));
+				eVo.setLev(rs.getString(4));
+				eVo.setEnter(rs.getDate(5));
+				eVo.setGender(rs.getInt(6));
+				eVo.setPhone(rs.getString(7));
+//				eVo = new EmployeesVO();
+//				eVo.setId(rs.getString("ID"));
+//				eVo.setPass(rs.getString("PASS"));
+//				eVo.setName(rs.getString("name"));
+//				eVo.setLev(rs.getString("lev"));
+//				eVo.setEnter(rs.getDate("ENTER"));
+//				eVo.setGender(rs.getInt("GENDER"));
+//				eVo.setPhone(rs.getString("PHONE"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
