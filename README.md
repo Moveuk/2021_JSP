@@ -38,8 +38,8 @@ Learning about basic JSP
 14. 20210728 Lecture14    
 	회원 가입 기능, 로그아웃 기능, 회원 정보 수정 기능, 유효성 검사
 15. 20210729 Lecture15     
-	  	
-16. 20210 Lecture16   
+	헤더 로그인 화면 분리, 로그인 기능, DAO 구현, DTO 구현
+16. 20210730 Lecture16   
 	
 17. 20210 Lecture17   
 	  	
