@@ -40,10 +40,10 @@ Learning about basic JSP
 15. 20210729 Lecture15     
 	헤더 로그인 화면 분리, 로그인 기능, DAO 구현, DTO 구현
 16. 20210730 Lecture16   
-	
-17. 20210 Lecture17   
-	  	
-18. 20210 Lecture18   
+	메인 페이지 구현, 정보 페이지 구현, DAO 기능 구현 (userCheck , getEmployee, updateEmployee), 테스트 10, a태그 form 보내기
+17. 20210802 Lecture17   
+	test10 설명, 커스텀조인, 회원가입 폼, 회원가입 성공, DAO 구현, 로그아웃
+18. 20210803 Lecture18   
 		  
 19. 20210 Lecture19   
 	 	
