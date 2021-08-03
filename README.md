@@ -44,8 +44,8 @@ Learning about basic JSP
 17. 20210802 Lecture17   
 	test10 설명, 커스텀조인, 회원가입 폼, 회원가입 성공, DAO 구현, 로그아웃
 18. 20210803 Lecture18   
-		  
-19. 20210 Lecture19   
+	관리자 열람시 리스트 구현, 파일 업로드
+19. 20210804 Lecture19   
 	 	
 20. 20210 Lecture20    
 		  
