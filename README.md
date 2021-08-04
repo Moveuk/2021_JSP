@@ -46,16 +46,16 @@ Learning about basic JSP
 18. 20210803 Lecture18   
 	관리자 열람시 리스트 구현, 파일 업로드
 19. 20210804 Lecture19   
-	 	
-20. 20210 Lecture20    
-		  
+	파일 업로드, 상품 정보 쇼핑몰 관리자, DTO, DAO, DBManager, ListForm, css, Controller 서블릿
+20. 20210805 Lecture20    
+	
 21. 20210 Lecture21    
-	  
+	
 22. 20210 Lecture22   
-	   
+	
 23. 20210 Lecture23    
 	
 24. 20210 Lecture24     
-	    
+	
 	
 ...
