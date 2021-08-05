@@ -30,7 +30,7 @@ Learning about basic JSP
 10. 20210722 Lecture10    
 	JSTL fmt, formatNumber, formatDate, locale, requestEncoding, EL-JTSL 로그인폼, javabean 회원가입폼, SQL, Oracle, DriverManager, JNDI Datasource, InitialContext(), DataSource, init.lookup, Statement, createStatement, prepareStatement
 11. 20210723 Lecture11     
-	ResultSet, MetaData, transaction, Test8
+	ResultSet, MetaData, transaction, **Test8**
 12. 20210726 Lecture12  
 	select, update, delete, insert 기능 구현, 자바 빈을 이용한 데이터 읽고 쓰기
 13. 20210727 Lecture13    
@@ -42,16 +42,16 @@ Learning about basic JSP
 16. 20210730 Lecture16   
 	메인 페이지 구현, 정보 페이지 구현, DAO 기능 구현 (userCheck , getEmployee, updateEmployee), 테스트 10, a태그 form 보내기
 17. 20210802 Lecture17   
-	test10 설명, 커스텀조인, 회원가입 폼, 회원가입 성공, DAO 구현, 로그아웃
+	**Test10** 설명, 커스텀조인, 회원가입 폼, 회원가입 성공, DAO 구현, 로그아웃
 18. 20210803 Lecture18   
 	관리자 열람시 리스트 구현, 파일 업로드
 19. 20210804 Lecture19   
 	파일 업로드, 상품 정보 쇼핑몰 관리자, DTO, DAO, DBManager, ListForm, css, Controller 서블릿
 20. 20210805 Lecture20    
-	
-21. 20210 Lecture21    
-	
-22. 20210 Lecture22   
+	상품 등록(Create), 상품 수정(Read & Update) 상품 삭제(Read & Delete), action 속성 생략, sequence의 cache 및 non cache 모드, Mission
+21. 20210806 Lecture21    
+	Mission10 & **Test11**
+22. 20210809 Lecture22   
 	
 23. 20210 Lecture23    
 	
