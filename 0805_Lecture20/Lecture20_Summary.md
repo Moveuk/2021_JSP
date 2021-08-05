@@ -573,6 +573,11 @@ select * from movie order by code desc;
 
 ![image](https://user-images.githubusercontent.com/84966961/128360482-552a79e8-30b7-4e2c-b014-cb8bd94e52e7.png)
 
+
+<br><br><hr>
+
+## 영화 정보 등록
+
 ![image](https://user-images.githubusercontent.com/84966961/128369306-60cffde7-6287-4b2c-9f3f-370bea497614.png)   
 
 ![image](https://user-images.githubusercontent.com/84966961/128369273-699310b5-16c8-41f3-af87-101ee23047c9.png)    
