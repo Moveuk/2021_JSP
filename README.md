@@ -52,8 +52,8 @@ Learning about basic JSP
 21. 20210806 Lecture21    
 	Mission10 & **Test11**
 22. 20210809 Lecture22   
-	
-23. 20210 Lecture23    
+	Test11 Review, Mision review, MVC2 model, Factory Pattern
+23. 20210810 Lecture23    
 	
 24. 20210 Lecture24     
 	
