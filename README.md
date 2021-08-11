@@ -55,7 +55,7 @@ Learning about basic JSP
 	Test11 Review, Mision review, MVC2 model, Factory Pattern
 23. 20210810 Lecture23    
 	MVC2 model, Factory Pattern, 게시판
-24. 20210 Lecture24     
-	
+24. 20210811 Lecture24     
+	MVC2 Mission 사원 관리 프로그램
 	
 ...
