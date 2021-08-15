@@ -57,9 +57,9 @@ Learning about basic JSP
 	MVC2 model, Factory Pattern, 게시판
 24. 20210811 Lecture24     
 	MVC2 Mission 사원 관리 프로그램
-25. 20210812 Lecture25
-	Nonage Shop 만들기
-26. 20210813 Lecture26
-	Test12 & Nonage Shop 만들기
+25. 20210812 Lecture25   
+	Nonage Shop 만들기   
+26. 20210813 Lecture26   
+	Test12 & Nonage Shop 만들기   
 
 End
