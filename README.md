@@ -61,5 +61,8 @@ Learning about basic JSP
 	Nonage Shop 만들기   
 26. 20210813 Lecture26   
 	Test12 & Nonage Shop 만들기   
+27. 20210817 Lecture28   
+	Nonage Shop(ProductList & Member, join 구현), TEST12 리뷰
 
-Endㄴㅇㅁ
+
+End
