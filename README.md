@@ -61,8 +61,10 @@ Learning about basic JSP
 	Nonage Shop 만들기   
 26. 20210813 Lecture26   
 	Test12 & Nonage Shop 만들기   
-27. 20210817 Lecture28   
+27. 20210817 Lecture27   
 	Nonage Shop(ProductList & Member, join 구현), TEST12 리뷰
-
-
+27. 20210818 Lecture28   
+	MultiPartRequest의 주소값, DelegatingPrepareStatement with address : NULL is closed 오류, SQL과 톰캣의 오류   
+	
+	
 End
