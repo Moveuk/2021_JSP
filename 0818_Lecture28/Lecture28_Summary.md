@@ -1,6 +1,6 @@
 # Lecture28 Test12 리뷰
 
-Key Word : 
+Key Word : MultiPartRequest의 주소값, DelegatingPrepareStatement with address : NULL is closed 오류, SQL과 톰캣의 오류
 
 <hr>
 
