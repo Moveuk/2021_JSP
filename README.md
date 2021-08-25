@@ -65,6 +65,9 @@ Learning about basic JSP
 	Nonage Shop(ProductList & Member, join 구현), TEST12 리뷰
 28. 20210818 Lecture28   
 	MultiPartRequest의 주소값, DelegatingPrepareStatement with address : NULL is closed 오류, SQL과 톰캣의 오류   
-	
+29. 20210825 Lecture29   
+	회원가입 폼 생성, DAO ID 중복체크 기능 추가 
+
+
 	
 ## End
