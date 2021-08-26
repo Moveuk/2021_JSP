@@ -8,7 +8,7 @@ Key Word : 회원가입 폼 생성, DAO ID 중복체크 기능 추가
 
 <br>
 
-### Front 파트
+### 폼 구현 및 ID 중복체크 파트
 
 1. JoinFormAction 구성
 ```java
