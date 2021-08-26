@@ -186,9 +186,78 @@ function result(zipNum,sido,gugun,dong) {
 
 ### 회원가입 - 회원 DB 추가 
 
+1. JoinAction 구성
+
+```java
+public class JoinAction implements Action {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = "member/login.jsp";
+		
+		HttpSession session = request.getSession();
+		
+		MemberVO memberVO = new MemberVO();
+		
+		memberVO.setId(request.getParameter("id"));
+		memberVO.setPwd(request.getParameter("pwd"));
+		memberVO.setName(request.getParameter("name"));
+		memberVO.setEmail(request.getParameter("email"));
+		memberVO.setZipNum(request.getParameter("zipNum"));
+		memberVO.setAddress(request.getParameter("addr1")+request.getParameter("addr2"));
+		memberVO.setPhone(request.getParameter("phone"));
+				
+		MemberDAO memberDAO = MemberDAO.getInstance();
+		memberDAO.insertMember(memberVO);
+		
+		session.setAttribute("id", request.getParameter("id"));
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
+				
+	}
+
+}
+```
+
+<br><br>
+
+
+2. DAO : insertMember 메소드 구현
+
+```java
+	  public int insertMember(MemberVO memberVO) {
+	    int result = 0;
+	    String sql = "insert into member(id, pwd, name, zip_num,";
+	    sql += " address, phone) values(?, ?, ?, ?, ?, ?)";
+
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    
+	    try {
+	      conn = DBManager.getConnection();
+	      pstmt = conn.prepareStatement(sql);
+	      pstmt.setString(1, memberVO.getId());      
+	      pstmt.setString(2, memberVO.getPwd());
+	      pstmt.setString(3, memberVO.getName());
+	      pstmt.setString(4, memberVO.getZipNum());
+	      pstmt.setString(5, memberVO.getAddress());
+	      pstmt.setString(6, memberVO.getPhone());
+	      result = pstmt.executeUpdate();
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    } finally {
+	      DBManager.close(conn, pstmt);
+	    }
+	    return result;
+	  }
+```
 
 
 
+**작동!**
 
+
+<br><br><hr>
 
 
