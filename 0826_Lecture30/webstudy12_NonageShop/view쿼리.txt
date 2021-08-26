@@ -1,0 +1,35 @@
+  CREATE OR REPLACE FORCE VIEW "NONAGE"."BEST_PRO_VIEW" ("PSEQ", "NAME", "PRICE2", "IMAGE") AS 
+  select pseq, name, price2, image
+from( select rownum, pseq, name, price2, image
+      from product
+      where bestyn='y'
+      order by indate desc)
+where  rownum <=4;
+
+=====================================
+
+ CREATE OR REPLACE FORCE VIEW "NONAGE"."CART_VIEW" ("CSEQ", "ID", "PSEQ", "MNAME", "PNAME", "QUANTITY", "INDATE", "PRICE2", "RESULT") AS 
+  select o.cseq, o.id, o.pseq, m.name mname, p.name pname,
+o.quantity, o.indate, p.price2, o.result
+from cart o, member m, product p
+where o.id = m.id and o.pseq = p.pseq
+and result='1';
+
+=======================================
+
+ CREATE OR REPLACE FORCE VIEW "NONAGE"."NEW_PRO_VIEW" ("PSEQ", "NAME", "PRICE2", "IMAGE") AS 
+  select pseq, name, price2, image
+from( select rownum, pseq, name, price2, image
+      from product
+      where useyn='y'
+      order by indate desc)
+where  rownum <=4;
+
+===========================================
+
+
+  CREATE OR REPLACE FORCE VIEW "NONAGE"."ORDER_VIEW" ("ODSEQ", "OSEQ", "ID", "INDATE", "PSEQ", "QUANTITY", "MNAME", "ZIP_NUM", "ADDRESS", "PHONE", "PNAME", "PRICE2", "RESULT") AS 
+  select d.odseq, o.oseq, o.id, o.indate, d.pseq,d.quantity, m.name mname,
+m.zip_num, m.address, m.phone, p.name pname, p.price2, d.result
+from orders o, order_detail d, member m, product p
+where o.oseq=d.oseq and o.id = m.id and d.pseq = p.pseq;
