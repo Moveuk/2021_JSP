@@ -69,5 +69,8 @@ Learning about basic JSP
 	회원가입 폼 생성, DAO ID 중복체크 기능 추가 
 30. 20210826 Lecture30   
 	회원가입 폼 - 주소찾기 기능 추가
-	
+30. 20210827 Lecture31    
+	로그인 - 화면 구현, 로그인 기능 구현, 로그아웃
+
+
 ## End
