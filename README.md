@@ -77,6 +77,8 @@ Learning about basic JSP
 	장바구니 기능 구현
 34. 20210902 Lecture34    
 	장바구니 기능 구현 - cartlist.jsp, delete 기능 설명 
+35. 20210903 Lecture34    
+	주문하기 기능 구현 
 
-   
+
 ## End
