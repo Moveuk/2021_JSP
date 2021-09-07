@@ -1,4 +1,4 @@
-# Lecture33 Nonage shop continue..
+# Lecture34 Nonage shop continue..
 
 Key Word : 장바구니 기능 구현 - cartlist.jsp, delete 기능 설명   
 
