@@ -82,10 +82,10 @@ Learning about basic JSP
 36. 20210907 Lecture36    
 	결제 전 주문 오더 리스트 확인 
 37. 20210908 Lecture37    
-	 
-38. 20210914 Lecture38    
-	qna 구현 
-
-
+	order 상세 확인
+38. 20210914 Lecture38     
+	qna 구현    
+39. 20210915 Lecture39    
+    	qna write 구현, qna view 구현    
 
 ## End
