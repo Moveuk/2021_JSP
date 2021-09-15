@@ -1,6 +1,6 @@
 # Lecture39 Nonage shop continue..
 
-Key Word : qna write 구현   
+Key Word : qna write 구현, qna view 구현   
 
 <hr>
 
